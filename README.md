@@ -22,23 +22,21 @@ Model setup, parameter (`.prm`) files, forcing and outputs are planned next.
 
 ```
 atlantis/
-├── SKILL.md                      # when the skill applies and the key rules
-└── references/
-    ├── contributing.md           # full rules, field-by-field guidance, checklist
-    └── templates/                # AtlantisTrunk's templates, unchanged
-        ├── bug_report.yml
-        ├── feature_request.yml
-        └── pull_request_template.md
+└── SKILL.md    # the whole skill: when it applies, rules, template guidance, checklist
 ```
+
+The skill is a single file on purpose, so it can be uploaded anywhere that
+accepts only a SKILL.md.
 
 ## Installing
 
-The skill is the `atlantis/` folder.
-
+- **Claude apps (web, desktop):** upload `atlantis/SKILL.md` as a custom skill
+  in Claude's settings.
 - **Claude Code:** copy the folder to `~/.claude/skills/atlantis/` (all your
   projects) or `.claude/skills/atlantis/` inside one project.
-- **Claude apps (web, desktop):** zip the `atlantis/` folder and upload it as a
-  custom skill in Claude's settings. The Claude help center describes where.
+- **Other AI tools that read SKILL.md files:** put the folder in that tool's
+  skills directory. Tools without skill support can take the file as custom
+  instructions.
 
 Then ask Claude something like *"Write a bug report for Atlantis: my model
 crashes in the harvest step after year 20"* or *"Check this diff before I open
@@ -46,15 +44,14 @@ a PR to AtlantisTrunk"*.
 
 ## Keeping it in step with AtlantisTrunk
 
-The files in `atlantis/references/templates/` are copies of
-`.github/ISSUE_TEMPLATE/*.yml` and the pull request template in AtlantisTrunk.
-When those or `CONTRIBUTING.md` change, update the copies and the matching
-sections of `references/contributing.md`.
+`SKILL.md` describes AtlantisTrunk's `CONTRIBUTING.md` and its bug report,
+feature request and pull request templates field by field. When those change
+upstream, update the matching sections of `SKILL.md`.
 
 ## Contributing
 
 Issues and pull requests are welcome, especially additions on model setup,
-parameter files and outputs. Keep `SKILL.md` short and put detail in
-`references/`, which Claude reads only when it needs it.
+parameter files and outputs. Keep everything in `SKILL.md` (under about 500
+lines) so it still works where only that one file can be uploaded.
 
 The first version was drafted with Claude and reviewed by a human.
